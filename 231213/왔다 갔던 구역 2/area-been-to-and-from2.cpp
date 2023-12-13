@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     // 여기에 코드를 작성해주세요.
     int arr[2001] = {0, };
-    int curX = 1000;
+    int curX = 0 + OFFSET;
     int n;
     cin >> n;
     for(int iCnt = 0; iCnt < n ;++iCnt)
@@ -15,19 +15,22 @@ int main() {
         cin >> Count >> Direct;
         if(Direct == 'R')
         {
-            while(Count--)
+            for(int iArr = curX;iArr<curX+Count;++iArr)
             {
-                curX++;
-                arr[curX]++;
+                arr[iArr]++;
             }
+           
+            curX += Count;
+
         }
         else
         {
-            while(Count--)
+            for(int iArr = curX - Count ;iArr < curX;++iArr)
             {
-                curX--;
-                arr[curX]++;
+                arr[iArr]++;
             }
+                       
+            curX -= Count;
             
         }
     }
