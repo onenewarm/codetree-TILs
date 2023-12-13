@@ -1,4 +1,5 @@
 #include <iostream>
+#define OFFSET 100
 
 using namespace std;
 
@@ -7,13 +8,13 @@ int main() {
     int n;
     cin >> n;
 
-    int arr[101] = {0,};
+    int arr[202] = {0,};
 
     for(int iCnt = 0; iCnt < n; ++iCnt)
     {
         int a,b;
         cin >> a >> b;
-        for(int iArr = a; iArr < b;++iArr)
+        for(int iArr = a+OFFSET; iArr < b+OFFSET;++iArr)
         {
             arr[iArr]++;
         }
@@ -21,7 +22,7 @@ int main() {
 
     int ans = 0;
 
-    for(int iCnt = 1;iCnt <= n;++iCnt)
+    for(int iCnt = 0;iCnt < 202;++iCnt)
     {
         ans = max(ans, arr[iCnt]);
     }
