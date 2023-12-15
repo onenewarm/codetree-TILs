@@ -44,6 +44,7 @@ int main() {
 
     int leftX = INF, rightX = MINF, downY = INF, upY = MINF;
 
+    bool changeFlag = false;
 
     for(int iRow = 0;iRow<=OFFSET*2;++iRow)
     {
@@ -51,6 +52,7 @@ int main() {
         {
             if(matrix[iRow][iCol] == 1)
             {
+                changeFlag = true;
                 leftX = min(leftX, iCol);
                 rightX = max(rightX, iCol);
                 downY = min(downY, iRow);
@@ -59,6 +61,7 @@ int main() {
         }
     }
 
-    cout << (rightX - leftX + 1) * (upY - downY + 1);
+    if(changeFlag == true) cout << (rightX - leftX + 1) * (upY - downY + 1);
+    else cout << 0;
     return 0;
 }
