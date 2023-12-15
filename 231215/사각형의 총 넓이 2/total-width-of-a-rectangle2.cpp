@@ -14,6 +14,11 @@ int main() {
         int x1,y1,x2,y2;
         cin >> x1 >> y1 >> x2 >> y2;
 
+        x1 += OFFSET;
+        y1 += OFFSET;
+        x2 += OFFSET;
+        y2 += OFFSET;
+
         for(int iRow = y1+1; iRow <= y2;++iRow)
         {
             for(int iCol = x1+1;iCol <=x2;++iCol)
