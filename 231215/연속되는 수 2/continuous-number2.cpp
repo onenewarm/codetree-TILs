@@ -22,6 +22,7 @@ int main() {
         if(iCnt == 0)
         {
             cnt = 1;
+            ans = 1;
         }
         else
         {
