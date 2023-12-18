@@ -67,7 +67,7 @@ int main() {
         }
     }
 
-    for(int iCnt = 1; iCnt < 1001;++iCnt)
+    for(int iCnt = 1; iCnt < 1000001;++iCnt)
     {
         if(A[iCnt] == B[iCnt] && A[iCnt] != -2000)
         {
