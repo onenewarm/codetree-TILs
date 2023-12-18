@@ -15,7 +15,7 @@ int main() {
     {
         int x;
         cin >> x;
-        if((prevX & 0x8000) & (x & 0x8000)) ++cnt;
+        if((prevX & 0x8000) == (x & 0x8000)) ++cnt;
         else
         {
             ans = max(ans, cnt);
