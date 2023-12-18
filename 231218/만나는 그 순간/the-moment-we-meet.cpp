@@ -8,8 +8,14 @@ int main() {
 
     cin >> N >> M;
 
-    int A[1001] = {-2000,};
-    int B[1001] = {-2000,};
+    int A[1001];
+    int B[1001];
+
+    for(int iCnt = 0 ; iCnt < 1001;++iCnt)
+    {
+        A[iCnt] = -2000;
+        B[iCnt] = -2000;
+    }
 
     int curX = 0;
     int curSec = 0;
