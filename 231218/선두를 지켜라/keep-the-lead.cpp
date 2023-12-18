@@ -82,7 +82,8 @@ int main() {
         }
     }
 
-    cout << 0;
+    if(ans == -1) cout << 0;
+    else cout << ans;
 
     return 0;
 }
