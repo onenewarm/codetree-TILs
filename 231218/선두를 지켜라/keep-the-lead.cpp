@@ -30,7 +30,7 @@ int main() {
     curX = 0;
     curH = 0;
 
-    for(int iCnt = 0; iCnt < N ;++iCnt)
+    for(int iCnt = 0; iCnt < M ;++iCnt)
     {
         int v, t;
         cin >> v >> t;
@@ -80,7 +80,6 @@ int main() {
                 first= 1;
             }
         }
-        
     }
 
     cout << ans;
