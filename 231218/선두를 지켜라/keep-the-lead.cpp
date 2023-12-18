@@ -82,7 +82,7 @@ int main() {
         }
     }
 
-    cout << ans;
+    cout << 0;
 
     return 0;
 }
