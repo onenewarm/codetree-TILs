@@ -25,6 +25,7 @@ int main() {
         prevX = x;
     }
 
+    ans = max(ans, cnt);
     cout << ans;
 
     return 0;
