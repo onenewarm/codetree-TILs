@@ -30,7 +30,7 @@ int main() {
     }
 
     int bCurT = 0;
-    for(int iCnt = 0; iCnt < N;++iCnt)
+    for(int iCnt = 0; iCnt < M;++iCnt)
     {
         int v, t;
         cin >> v >> t;
