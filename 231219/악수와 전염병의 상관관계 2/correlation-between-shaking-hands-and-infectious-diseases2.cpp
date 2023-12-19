@@ -41,6 +41,8 @@ int main() {
         int x = handShakes[iCnt].x;
         int y = handShakes[iCnt].y;
 
+        bool preInfectedFlag = infectedFlags[y];
+
         if(infectedFlags[x])
         {
             if(infectedCnt[x] > 0)
@@ -50,7 +52,7 @@ int main() {
             }
         }
 
-        if(infectedFlags[y])
+        if(infectedFlags[y] && preInfectedFlag)
         {
             if(infectedCnt[y] > 0)
             {
