@@ -42,12 +42,13 @@ int main() {
         }
     }
 
-    int first = -1;
+    int first = 0;
     int ans = 0;
 
     for(int iCnt = 1; iCnt < 1000001;++iCnt)
     {
-
+        if(A[iCnt] == OOB) break;
+        
         int curFirst;
         if(A[iCnt] == B[iCnt]) curFirst = 0;
         else if(A[iCnt] > B[iCnt]) curFirst = 1;
