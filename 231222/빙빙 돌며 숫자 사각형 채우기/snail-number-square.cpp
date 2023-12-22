@@ -25,7 +25,7 @@ int main() {
         int nextY = curY + dy[d];
         int nextX = curX + dx[d];
 
-        if(nextY < 0 || nextX < 0 || nextY > n-1 || nextX > n-1 || matrix[nextY][nextX] != -1)
+        if(nextY < 0 || nextX < 0 || nextY > n-1 || nextX > m-1 || matrix[nextY][nextX] != -1)
         {
             if(transCnt == 4) break;
             ++transCnt;
@@ -37,7 +37,7 @@ int main() {
         else
         {
             transCnt = 0;
-            
+
             curY += dy[d];
             curX += dx[d];
 
