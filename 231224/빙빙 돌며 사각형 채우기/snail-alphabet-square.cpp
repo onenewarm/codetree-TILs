@@ -2,6 +2,8 @@
 
 using namespace std;
 
+char matrix[101][101];
+
 int main() {
     // 여기에 코드를 작성해주세요.
 
@@ -19,8 +21,6 @@ int main() {
     int curY = 0;
 
     int iDir = 1;
-
-    char matrix[101][101] = {{0,},};
 
     while(loopCnt--)
     {
