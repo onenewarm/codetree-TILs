@@ -32,7 +32,7 @@ int main() {
         curY = curY + dy[iDir];
         curX = curX + dx[iDir];
 
-        matrix[curY][curX] = matrixVal % 26 + 'A';
+        matrix[curY][curX] = (matrixVal % 26) + 'A';
         ++matrixVal;
     }
 
