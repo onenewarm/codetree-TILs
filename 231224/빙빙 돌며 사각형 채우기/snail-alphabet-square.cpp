@@ -12,7 +12,7 @@ int main() {
 
     int loopCnt = n*m;
     
-    char matrixVal = 0;
+    int matrixVal = 0;
 
     int dy[4] = {-1,0,1,0};
     int dx[4] = {0,1,0,-1};
