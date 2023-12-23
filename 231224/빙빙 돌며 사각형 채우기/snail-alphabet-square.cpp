@@ -20,7 +20,7 @@ int main() {
 
     int iDir = 1;
 
-    char matrix[101][101] = {0,};
+    char matrix[101][101] = {{0,},};
 
     while(loopCnt--)
     {
