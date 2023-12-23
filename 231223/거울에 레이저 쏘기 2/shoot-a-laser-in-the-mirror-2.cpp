@@ -11,15 +11,15 @@ int main() {
     int N;
     cin >> N;
 
-    vector<vector<char>> matrix(N+2, vector<char>(N+2));
+    vector<vector<char>> matrix(N, vector<char>(N));
 
-    for(int iRow = 1; iRow < N+1;++iRow)
+    for(int iRow = 0; iRow < N;++iRow)
     {
         char str[1001];
         cin >> str;
 
         char* pStr = str;
-        int iCol = 1;
+        int iCol = 0;
         while(*pStr != '\0')
         {
             matrix[iRow][iCol] = *pStr;
@@ -29,8 +29,11 @@ int main() {
     }
 
     int K;
+
     cin >> K;
-    
+
+    K--;
+
     int curY = 0;
     int curX = 0;
     int curDir = 1;
@@ -40,7 +43,7 @@ int main() {
         int nextY = curY + dy[curDir];
         int nextX = curX + dx[curDir];
 
-        if(nextY < 0 || nextX < 0 || nextY > N + 1 || nextX > N + 1)
+        if(nextY < 0 || nextX < 0 || nextY > N - 1 || nextX > N - 1)
         {
             curDir = (curDir + 1) % 4;
         }
@@ -56,12 +59,31 @@ int main() {
 
     int ans = 0;
 
+    {
+        if(matrix[curY][curX] == '\\')
+        {
+            ++ans;
+            if(curDir == 0) curDir = 3;
+            else if(curDir == 1) curDir = 2;
+            else if(curDir == 2) curDir = 1;
+            else if(curDir == 3) curDir = 0;
+        }
+        else if(matrix[curY][curX] == '/')
+        {
+            ++ans;
+            if(curDir == 0) curDir = 1;
+            else if(curDir == 1) curDir = 0;
+            else if(curDir == 2) curDir = 3;
+            else if(curDir == 3) curDir = 2;
+        }
+    }
+
     while(1)
     {
         int nextY = curY + dy[curDir];
         int nextX = curX + dx[curDir];
 
-        if(nextY < 1 || nextX < 1 || nextY > N || nextX > N)
+        if(nextY < 0 || nextX < 0 || nextY > N - 1 || nextX > N - 1)
         {
             cout << ans;
             return 0;
