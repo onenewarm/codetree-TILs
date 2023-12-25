@@ -31,6 +31,8 @@ int main() {
             {
                 for(int iBCol = iACol + 1; iBCol < C-1;++iBCol)
                 {
+                    if(Rect[iARow][iACol] == Rect[iBRow][iBCol]) continue;
+
                     if(Rect[iBRow][iBCol] == endColor) continue;
 
                     ++ans;
