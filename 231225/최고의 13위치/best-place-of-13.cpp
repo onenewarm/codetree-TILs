@@ -21,12 +21,11 @@ int main() {
 
     for(int iRow = 0 ; iRow < N ; ++iRow)
     {
-        int curCoins = 0;
         for(int iCol = 0; iCol < N - 2 ; ++iCol)
         {
-            curCoins += coinsFlag[iRow][iCol] + coinsFlag[iRow][iCol+1] + coinsFlag[iRow][iCol+2];
+            int curCoins = coinsFlag[iRow][iCol] + coinsFlag[iRow][iCol+1] + coinsFlag[iRow][iCol+2];
+            ans = max(ans, curCoins);
         }
-        ans = max(ans, curCoins);
     }
 
     cout << ans;
