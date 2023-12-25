@@ -7,7 +7,7 @@ int main() {
     int R,C;
     cin >> R >> C;
 
-    char Rect[5][15];
+    char Rect[15][15];
 
     for(int iRow = 0; iRow < R ; ++iRow)
     {
