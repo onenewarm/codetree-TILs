@@ -7,8 +7,6 @@ int main() {
     int R,C;
     cin >> R >> C;
 
-    char startColor;
-
     char Rect[5][15];
 
     for(int iRow = 0; iRow < R ; ++iRow)
@@ -19,7 +17,8 @@ int main() {
         }
     }
 
-    startColor = Rect[0][0];
+    char startColor = Rect[0][0];
+    char endColor = Rect[R-1][C-1];
 
     int ans = 0;
 
@@ -32,7 +31,7 @@ int main() {
             {
                 for(int iBCol = iACol + 1; iBCol < C-1;++iBCol)
                 {
-                    if(Rect[iBRow][iBCol] != startColor) continue;
+                    if(Rect[iBRow][iBCol] == endColor) continue;
 
                     ++ans;
                 }
