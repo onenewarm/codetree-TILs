@@ -16,7 +16,7 @@ int main() {
         cin >> nums[iCnt];
     }
 
-    int ans = 0;
+    int ans = -1;
 
     for(int iFirst = 0; iFirst < n - 2;++iFirst)
     {
