@@ -17,7 +17,7 @@ int main() {
 
     int ans = 0;
 
-    for(int iCnt = 0; iCnt < n - k ; ++iCnt)
+    for(int iCnt = 0; iCnt < n - k + 1 ; ++iCnt)
     {
         int sum = 0;
         for(int iNum = iCnt; iNum < iCnt+k;++iNum)
