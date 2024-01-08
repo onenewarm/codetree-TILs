@@ -39,7 +39,7 @@ int main() {
 
         for(int iCnt = 0; iCnt < m;++iCnt)
         {
-            if(tmpArr[iCnt] != arrA[iA + iCnt])
+            if(tmpArr[iCnt] != arrB[iCnt])
             {
                 flag = false;
                 break;
