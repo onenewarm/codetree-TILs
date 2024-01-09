@@ -20,9 +20,9 @@ int main() {
 
     for(int iFirst = 0 ; iFirst < 6 ; ++iFirst)
     {
-        for(int iSecond = iFirst ; iSecond < 6 ; ++iSecond)
+        for(int iSecond = iFirst + 1 ; iSecond < 6 ; ++iSecond)
         {
-            for(int iThird = iSecond ; iThird < 6 ;++iThird)
+            for(int iThird = iSecond + 1 ; iThird < 6 ;++iThird)
             {
                 int sum = 0;
                 sum = algorithmStats[iFirst] + algorithmStats[iSecond] + algorithmStats[iThird];
