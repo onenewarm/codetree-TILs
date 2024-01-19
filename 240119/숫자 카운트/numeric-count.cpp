@@ -47,14 +47,11 @@ int main() {
                     if(iSecond == InputsSecond) ++curCnt1;
                     if(iThird == InputsThird) ++curCnt1;
 
-                    if(iFirst == InputsSecond) ++curCnt2;
-                    if(iFirst == InputsThird) ++curCnt2;
+                    if(iFirst == InputsSecond || iFirst == InputsThird) ++curCnt2;
 
-                    if(iSecond == InputsFirst) ++curCnt2;
-                    if(iSecond == InputsThird) ++curCnt2;
+                    if(iSecond == InputsFirst || iSecond == InputsThird) ++curCnt2;
 
-                    if(iThird == InputsFirst) ++curCnt2;
-                    if(iThird == InputsSecond) ++curCnt2;
+                    if(iThird == InputsFirst || iThird == InputsSecond) ++curCnt2;
 
                     if(curCnt1 != inputs[iInputs].cnt1 || curCnt2 != inputs[iInputs].cnt2)
                     {
