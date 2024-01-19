@@ -33,6 +33,7 @@ int main() {
         {
             for(int iThird = 1 ; iThird < 10 ; ++iThird)
             {
+                if(iFirst == iSecond || iFirst == iThird || iSecond == iThird) continue;
                 bool flag = true;
                 for(int iInputs = 0 ; iInputs < n ; ++iInputs)
                 {
