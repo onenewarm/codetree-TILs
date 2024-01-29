@@ -23,7 +23,7 @@ int main() {
         for(int iCnt2 = iCnt1 + 1; iCnt2 < n ; ++iCnt2)
         {
             int distanceX = (x[iCnt1] - x[iCnt2]) * (x[iCnt1] - x[iCnt2]);
-            int distanceY = (y[iCnt1] - x[iCnt2]) * (y[iCnt1] - y[iCnt2]);
+            int distanceY = (y[iCnt1] - y[iCnt2]) * (y[iCnt1] - y[iCnt2]);
 
             ans = min(ans, distanceX + distanceY);
         }
