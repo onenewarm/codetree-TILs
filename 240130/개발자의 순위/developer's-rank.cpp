@@ -13,7 +13,14 @@ int main() {
     
     int rank[5];
 
-    cin >> rank[1] >> rank[2] >> rank[3] >> rank[4];
+    int a,b,c,d;
+
+    cin >> a >> b >> c >> d;
+
+    rank[a] = 1;
+    rank[b] = 2;
+    rank[c] = 3;
+    rank[d] = 4;
 
     for(int iA = 1 ; iA <= N ; ++iA)
     {
@@ -28,7 +35,15 @@ int main() {
 
     for(int iCnt = 0; iCnt < K-1 ; ++iCnt)  
     {
-        cin >> rank[1] >> rank[2] >> rank[3] >> rank[4];
+        int a,b,c,d;
+
+        cin >> a >> b >> c >> d;
+
+        rank[a] = 1;
+        rank[b] = 2;
+        rank[c] = 3;
+        rank[d] = 4;
+
         for(auto iter = res.begin() ; iter != res.end() ; )
         {
             int A = (*iter).first;
