@@ -11,16 +11,14 @@ int main() {
 
     list<pair<int,int>> res;
     
-    int rank[5];
+    int rank[21];
 
-    int a,b,c,d;
-
-    cin >> a >> b >> c >> d;
-
-    rank[a] = 1;
-    rank[b] = 2;
-    rank[c] = 3;
-    rank[d] = 4;
+    for(int iCnt = 1; iCnt <= N ; ++iCnt)
+    {
+        int idx;
+        cin >> idx;
+        rank[idx] = iCnt;
+    }
 
     for(int iA = 1 ; iA <= N ; ++iA)
     {
@@ -35,14 +33,13 @@ int main() {
 
     for(int iCnt = 0; iCnt < K-1 ; ++iCnt)  
     {
-        int a,b,c,d;
 
-        cin >> a >> b >> c >> d;
-
-        rank[a] = 1;
-        rank[b] = 2;
-        rank[c] = 3;
-        rank[d] = 4;
+        for(int iRank = 1; iRank <= N ; ++iRank)
+        {
+            int idx;
+            cin >> idx;
+            rank[idx] = iRank;
+        }
 
         for(auto iter = res.begin() ; iter != res.end() ; )
         {
