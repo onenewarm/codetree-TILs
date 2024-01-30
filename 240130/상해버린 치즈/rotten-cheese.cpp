@@ -2,8 +2,6 @@
 
 using namespace std;
 
-
-
 struct SickRecord
 {
     int p;
@@ -28,7 +26,7 @@ int main() {
         eatingRecord[p][m] = t;
     }
 
-    for(int iCnt = 0; iCnt < S ;++iCnt)
+    for(int iCnt = 0; iCnt < S ; ++iCnt)
     {
         int p,t;
         cin >> p >> t;
@@ -46,7 +44,7 @@ int main() {
         //p가 먹은 치즈 중에서 t시간 전에 먹은 것을 찾아서 선별한다.
         for(int iCheeze = 1 ; iCheeze <= M ; ++iCheeze)
         {
-            if(candidatesCheeze[iCheeze] == prevIdx && 
+            if(candidatesCheeze[iCheeze] == prevIdx && eatingRecord[sickRecord[iCnt].p][iCheeze] != 0 &&
             eatingRecord[sickRecord[iCnt].p][iCheeze] < sickRecord[iCnt].t)
             {
                 candidatesCheeze[iCheeze] = sickRecord[iCnt].p;
