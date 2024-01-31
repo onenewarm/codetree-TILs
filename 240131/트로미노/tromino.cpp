@@ -23,7 +23,7 @@ int main() {
 
     for(int iRow = 0 ; iRow < n ; ++iRow)
     {
-        for(int iCol = 0 ; iCol < n ; ++iCol)
+        for(int iCol = 0 ; iCol < m ; ++iCol)
         {
             int OOBRow = iRow + 1;
             int OOBCol = iCol + 1;
