@@ -23,9 +23,9 @@ int main() {
     int ans = 0;
 
     //탐색이 되는 기준인 왼쪽 모서리를 for문으로 표현한다.
-    for(int iStdRow = 0 ; iStdRow < N-2 ; iStdRow += 3)
+    for(int iStdRow = 0 ; iStdRow < N-2 ; ++iStdRow)
     {
-        for(int iStdCol = 0 ; iStdCol < N-2 ; iStdCol +=3)
+        for(int iStdCol = 0 ; iStdCol < N-2 ; ++iStdCol)
         {
             int coinCnt = 0;
             for(int iRow = iStdRow ; iRow < iStdRow + 3 ; ++iRow)
