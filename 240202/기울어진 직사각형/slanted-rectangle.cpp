@@ -31,7 +31,7 @@ int main() {
                 int nextY = iRow + (sideLen * dy[0]);
                 int nextX = iCol + (sideLen * dx[0]);
 
-                if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) break;
+                if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) continue;
 
                 for(int bottomLen = 1 ; bottomLen < n ; ++bottomLen)
                 {
@@ -40,17 +40,17 @@ int main() {
                     nextY = nextY + (bottomLen * dy[1]);
                     nextX = nextX + (bottomLen * dx[1]);
 
-                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) break;
+                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) continue;
 
                     nextY = nextY + (sideLen * dy[2]);
                     nextX = nextX + (sideLen * dx[2]);
 
-                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) break;
+                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) continue;
 
                     nextY = nextY + (bottomLen * dy[3]);
                     nextX = nextX + (bottomLen * dx[3]);
 
-                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) break;
+                    if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) continue;
 
                     int curY = iRow;
                     int curX = iCol;
