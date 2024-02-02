@@ -26,14 +26,14 @@ int main() {
     {
         for(int iCol = 0 ; iCol < n ; ++iCol)
         {
-            for(int sideLen = 1 ; sideLen < n - 1 ; ++sideLen)
+            for(int sideLen = 1 ; sideLen < n ; ++sideLen)
             {
                 int nextY = iRow + (sideLen * dy[0]);
                 int nextX = iCol + (sideLen * dx[0]);
 
                 if(nextY < 0 || nextY > n - 1 || nextX < 0 || nextX > n - 1) break;
 
-                for(int bottomLen = 1 ; bottomLen < n - sideLen ; ++bottomLen)
+                for(int bottomLen = 1 ; bottomLen < n ; ++bottomLen)
                 {
                     int sum = 0 ;
 
