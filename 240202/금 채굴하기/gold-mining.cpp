@@ -52,7 +52,7 @@ int Solve()
 {
     int ret = 0;
 
-    for(int KCnt = 0 ; KCnt <= 2 * n ; ++KCnt)
+    for(int KCnt = 0 ; KCnt < (2 * n) - 1; ++KCnt)
     {
         for(int iY = 0 ; iY < n ; ++iY)
         {
