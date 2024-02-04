@@ -37,6 +37,7 @@ int main() {
         {
             cout << matrix[iRow][iCol % n] << ' ';
         }
+        cout << '\n';
     }
 
     return 0;
