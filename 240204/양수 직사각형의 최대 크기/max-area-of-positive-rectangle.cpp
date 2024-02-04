@@ -12,7 +12,7 @@ int CheckRange(int y1, int x1, int y2, int x2)
         for(int iCol = x1 ; iCol <= x2 ; ++iCol)
         {
             ++cnt;
-            if(matrix[iRow][iCol] < 0) return -1;
+            if(matrix[iRow][iCol] <= 0) return -1;
         }
     }
 
@@ -21,11 +21,8 @@ int CheckRange(int y1, int x1, int y2, int x2)
 
 int main() {
     // 여기에 코드를 작성해주세요.
-
     int n , m;
     cin >> n >> m;
-
-
 
     for(int iRow = 0 ; iRow < n ; ++iRow)
     {
