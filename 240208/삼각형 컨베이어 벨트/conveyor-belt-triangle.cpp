@@ -23,7 +23,7 @@ int main() {
 
     while(t--)
     {
-        int iChange = (iFirstCol + 2) % n;
+        int iChange = (iFirstCol + (n - 1)) % n;
         int tmp1 = matrix[1][iChange];
         int tmp2 = matrix[2][iChange];
         
