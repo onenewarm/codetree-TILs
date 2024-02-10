@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int dy[4] = {-1, -1, 1, 1};
+int dy[4] = {1, 1, -1, -1};
 int dx[4] = {-1, 1, 1, -1};
 
 int Rdy[4] = {-1, -1, 1, 1};
