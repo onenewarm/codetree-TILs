@@ -25,7 +25,9 @@ int main() {
         int s,e;
         cin >> s >> e;
 
-        for(int iCnt = s-1 ; iCnt < e ; ++iCnt)
+        int lastIdx = (floorIdx - (n-1)) + e;
+
+        for(int iCnt = (floorIdx - (n-1)) + (s-1) ; iCnt < lastIdx ; ++iCnt)
         {
             if(blocks[iCnt] != 0)
             {
