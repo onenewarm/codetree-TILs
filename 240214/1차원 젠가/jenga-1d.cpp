@@ -11,38 +11,39 @@ int main() {
 
     cin >> n;
 
-    int floorIdx = n-1;
+    int floorIdx = n - 1;
 
-    for(int iCnt = 0 ; iCnt < n ; ++iCnt)
+    for (int iCnt = 0; iCnt < n; ++iCnt)
     {
         cin >> blocks[iCnt];
     }
 
     int cases = 2;
 
-    while(cases--)
+    while (cases--)
     {
-        int s,e;
+        int s, e;
         cin >> s >> e;
 
-        int lastIdx = (floorIdx - (n-1)) + e;
+        int lastIdx = (floorIdx - (n - 1)) + e;
 
-        for(int iCnt = (floorIdx - (n-1)) + (s-1) ; iCnt < lastIdx ; ++iCnt)
+        for (int iCnt = (floorIdx - (n - 1)) + (s - 1); iCnt < lastIdx ; ++iCnt)
         {
-            if(blocks[iCnt] != 0)
+            if (blocks[iCnt] != 0)
             {
                 blocks[iCnt] = 0;
                 --n;
             }
         }
 
-        for(int iCnt = floorIdx ; iCnt >= 0 ; --iCnt)
+        for (int iCnt = floorIdx; iCnt >= 0; --iCnt)
         {
-            for(int iNear = iCnt ; iNear >= 0 ; --iNear)
+            for (int iNear = iCnt; iNear >= 0; --iNear)
             {
-                if(blocks[iNear] != 0)
+                if (blocks[iNear] != 0)
                 {
                     blocks[iCnt] = blocks[iNear];
+                    blocks[iNear] = 0;
                     break;
                 }
             }
@@ -50,15 +51,10 @@ int main() {
     }
 
     cout << n << '\n';
-    for(int iCnt = floorIdx - (n - 1) ; iCnt < floorIdx + 1 ; ++iCnt )
+    for (int iCnt = floorIdx - (n - 1); iCnt < floorIdx + 1; ++iCnt)
     {
         cout << blocks[iCnt] << '\n';
     }
 
     return 0;
 }
-
-/*
-
-
-*/
