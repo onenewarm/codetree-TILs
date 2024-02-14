@@ -27,7 +27,7 @@ int main() {
 
         int lastIdx = (floorIdx - (n - 1)) + e;
 
-        for (int iCnt = (floorIdx - (n - 1)) + (s - 1); iCnt < lastIdx ; ++iCnt)
+        for (int iCnt = (floorIdx - (n - 1)) + (s - 1); iCnt < lastIdx; ++iCnt)
         {
             if (blocks[iCnt] != 0)
             {
@@ -38,15 +38,19 @@ int main() {
 
         for (int iCnt = floorIdx; iCnt >= 0; --iCnt)
         {
-            for (int iNear = iCnt; iNear >= 0; --iNear)
+            if (blocks[iCnt] == 0)
             {
-                if (blocks[iNear] != 0)
+                for (int iNear = iCnt - 1; iNear >= 0; --iNear)
                 {
-                    blocks[iCnt] = blocks[iNear];
-                    blocks[iNear] = 0;
-                    break;
+                    if (blocks[iNear] != 0)
+                    {
+                        blocks[iCnt] = blocks[iNear];
+                        blocks[iNear] = 0;
+                        break;
+                    }
                 }
             }
+
         }
     }
 
