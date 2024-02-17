@@ -93,7 +93,7 @@ void Solve()
         {
             curPos = InitCurPos;
             addPos = InitAddPos;
-            while(curPos >= 0 || curPos < 4)
+            while(curPos >= 0 && curPos < 4)
             {
                 if(matrix[curPos][iCol] != 0)
                 {
