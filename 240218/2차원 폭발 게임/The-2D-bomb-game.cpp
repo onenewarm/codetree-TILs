@@ -113,13 +113,17 @@ void Rotate()
 
 void Solve()
 {
+    while(Boom())
+    {
+        Gravity();
+    }
     while(k--)
     {
+        Rotate();
         while(Boom())
         {
             Gravity();
         }
-        Rotate();
     }
 
 
@@ -210,5 +214,14 @@ Rotate
 3 0 0
 3 2 1
 1 2 1
+
+
+3410
+1200
+0000
+0000
+
+34
+121
 
 */
