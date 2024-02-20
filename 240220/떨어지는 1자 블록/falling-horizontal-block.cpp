@@ -16,7 +16,8 @@ void Solve()
 
     for(int iCol = k ; iCol < k + m ;++iCol)
     {
-        matrix[collisionRow-1][iCol] = 1;
+        if(collisionRow == 1) matrix[collisionRow][iCol] = 1;
+        else matrix[collisionRow-1][iCol] = 1;
     }
 
     for(int iRow = 1 ; iRow <=n ; ++iRow)
