@@ -13,7 +13,7 @@ void Solve()
     int collisionRow = maxSize;
     for(int iCol = k ; iCol < k + m ; ++iCol)
     {
-        if(collisionRow != 0) collisionRow = min(collisionRow, highest[iCol]);
+        if(highest[iCol] != 0) collisionRow = min(collisionRow, highest[iCol]);
     }
 
     int resCol;
