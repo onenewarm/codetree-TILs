@@ -10,7 +10,7 @@ int curIdx = 1;
 int startX, startY;
 
 int n;
-char matrix[100][100];
+char matrix[101][101];
 
 void Solve()
 {
@@ -24,11 +24,13 @@ void Solve()
         int nextY = curY + dy[curIdx];
         int nextX = curX + dx[curIdx];
 
-        int visit[100][100][4];
+        int visit[101][101][4];
 
-        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1) break;
-
-        ++cnt;
+        if(nextY < 1 || nextX < 1 || nextY > n || nextX > n)
+        {
+            ++cnt;
+            break;
+        }
 
         if(visit[nextY][nextX][curIdx] == 1)
         {
@@ -46,16 +48,18 @@ void Solve()
             visit[nextY][nextX][curIdx] = 1;
             curX = nextX;
             curY = nextY;
+            ++cnt;
 
             int checkY = curY + dy[(curIdx + 5) % 4];
             int checkX = curX + dx[(curIdx + 5) % 4];
 
-            if(checkY < 0 || checkX < 0 || checkY > n-1 || checkX > n - 1 || matrix[checkY][checkX] == '#') continue;
+            if(checkY < 1 || checkX < 1 || checkY > n || checkX > n || matrix[checkY][checkX] == '#') continue;
 
             curIdx = (curIdx + 5) % 4;
             visit[checkY][checkX][curIdx] = 1;
             curY = checkY;
             curX = checkX;
+            ++cnt;
         }
     }
 
@@ -67,9 +71,9 @@ int main() {
     
     cin >> n;
     cin >> startX >> startY;
-    for(int iRow = 0 ; iRow < n ; ++iRow)
+    for(int iRow = 1 ; iRow < n + 1; ++iRow)
     {
-        for(int iCol = 0 ; iCol < n ; ++iCol)
+        for(int iCol = 1 ; iCol < n + 1 ; ++iCol)
         {
             cin >> matrix[iRow][iCol];
         }
