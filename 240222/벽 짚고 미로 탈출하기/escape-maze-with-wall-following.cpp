@@ -14,6 +14,10 @@ char matrix[101][101];
 
 void Solve()
 {
+    int visit[101][101][4];
+
+    visit[startY][startX][curIdx] = 1;
+
     int curY = startY;
     int curX = startX;
 
@@ -23,9 +27,7 @@ void Solve()
     {
         int nextY = curY + dy[curIdx];
         int nextX = curX + dx[curIdx];
-
-        int visit[101][101][4];
-
+        
         if (nextY < 1 || nextX < 1 || nextY > n || nextX > n)
         {
             ++cnt;
