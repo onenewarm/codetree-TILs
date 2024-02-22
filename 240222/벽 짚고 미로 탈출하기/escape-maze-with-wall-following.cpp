@@ -2,8 +2,8 @@
 
 using namespace std;
 
-int dy[4] = {-1, 0, 1, 0};
-int dx[4] = {0, 1, 0, -1};
+int dy[4] = { -1, 0, 1, 0 };
+int dx[4] = { 0, 1, 0, -1 };
 
 int curIdx = 1;
 
@@ -14,31 +14,31 @@ char matrix[101][101];
 
 void Solve()
 {
-    int curX = startX;
     int curY = startY;
+    int curX = startX;
 
     int cnt = 0;
 
-    while(1)
+    while (1)
     {
         int nextY = curY + dy[curIdx];
         int nextX = curX + dx[curIdx];
 
         int visit[101][101][4];
 
-        if(nextY < 1 || nextX < 1 || nextY > n || nextX > n)
+        if (nextY < 1 || nextX < 1 || nextY > n || nextX > n)
         {
             ++cnt;
             break;
         }
 
-        if(visit[nextY][nextX][curIdx] == 1)
+        if (visit[nextY][nextX][curIdx] == 1)
         {
             cnt = -1;
             break;
         }
 
-        if(matrix[nextY][nextX] == '#')
+        if (matrix[nextY][nextX] == '#')
         {
             visit[nextY][nextX][curIdx] = 1;
             curIdx = (curIdx + 3) % 4;
@@ -46,14 +46,14 @@ void Solve()
         else
         {
             visit[nextY][nextX][curIdx] = 1;
-            curX = nextX;
             curY = nextY;
+            curX = nextX;
             ++cnt;
 
             int checkY = curY + dy[(curIdx + 5) % 4];
             int checkX = curX + dx[(curIdx + 5) % 4];
 
-            if(checkY < 1 || checkX < 1 || checkY > n || checkX > n || matrix[checkY][checkX] == '#') continue;
+            if (checkY < 1 || checkX < 1 || checkY > n || checkX > n || matrix[checkY][checkX] == '#') continue;
 
             curIdx = (curIdx + 5) % 4;
             visit[checkY][checkX][curIdx] = 1;
@@ -68,12 +68,12 @@ void Solve()
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    
+
     cin >> n;
-    cin >> startX >> startY;
-    for(int iRow = 1 ; iRow < n + 1; ++iRow)
+    cin >> startY >> startX;
+    for (int iRow = 1; iRow < n + 1; ++iRow)
     {
-        for(int iCol = 1 ; iCol < n + 1 ; ++iCol)
+        for (int iCol = 1; iCol < n + 1; ++iCol)
         {
             cin >> matrix[iRow][iCol];
         }
