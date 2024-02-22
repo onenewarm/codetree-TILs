@@ -18,7 +18,7 @@ void Solve()
 
     int resCol;
 
-    if(collisionRow == maxSize) resCol = 1;
+    if(collisionRow == maxSize) resCol = n;
     else resCol = collisionRow - 1;
 
     for(int iCol = k ; iCol < k + m ;++iCol)
