@@ -13,8 +13,8 @@ void PartSolve(int curY, int curX, int curDir)
 {
     int curTime = 1;
 
-    int visit[100][100][4] = {};
-    visit[curY][curX][curDir] = 1;
+    //int visit[100][100][4] = {};
+    //visit[curY][curX][curDir] = 1;
 
     while(1)
     {
@@ -28,9 +28,9 @@ void PartSolve(int curY, int curX, int curDir)
             break;
         }
         
-        if(visit[nextY][nextX][curDir]) break;
+        //if(visit[nextY][nextX][curDir]) break;
 
-        visit[nextY][nextX][curDir] = 1;
+        //visit[nextY][nextX][curDir] = 1;
 
         if(matrix[nextY][nextX] != 0)
         {
