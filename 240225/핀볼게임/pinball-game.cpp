@@ -3,8 +3,8 @@
 using namespace std;
 
 int n;
-int matrix[100][100];
-int d[100][100][4];
+int matrix[102][102];
+int d[102][102][4];
 int maxTime = 0;
 
 int dy[4] = {-1, 0, 1, 0};
@@ -12,7 +12,7 @@ int dx[4] = {0, 1, 0, -1};
 
 void PartSolve(int curY, int curX, int curDir)
 {
-    int curTime = 1;
+    int curTime = 0;
 
     while(1)
     {
@@ -20,9 +20,9 @@ void PartSolve(int curY, int curX, int curDir)
         int nextY = curY + dy[curDir];
         int nextX = curX + dx[curDir];
 
-        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1 ) break;
+        if(nextY < 1 || nextX < 1 || nextY > n || nextX > n ) break;
 
-        if(d[nextY][nextX][curDir] >= curTime) break;
+        if(d[nextY][nextX][curDir] > curTime) break;
         else d[nextY][nextX][curDir] = curTime;
 
         if(matrix[nextY][nextX] != 0)
@@ -50,16 +50,18 @@ void Solve()
 {
 
     //위
-    for(int iCol = 0 ; iCol < n ; ++iCol) PartSolve(0, iCol, 2);
+    for(int iCol = 1 ; iCol <= n ; ++iCol) PartSolve(0, iCol, 2);
 
     //하
-    for(int iCol = 0 ; iCol < n ; ++iCol) PartSolve(n-1, iCol, 0);
+    for(int iCol = 1 ; iCol <= n  ; ++iCol) PartSolve(n+1, iCol, 0);
 
     //좌
-    for(int iRow = 0 ; iRow < n ; ++iRow) PartSolve(iRow, 0, 1);
+    for(int iRow = 1 ; iRow <= n ; ++iRow) PartSolve(iRow, 0, 1);
 
     //우
-    for(int iRow = 0 ; iRow < n ; ++iRow) PartSolve(iRow, n-1, 3);
+    for(int iRow = 1 ; iRow <= n ; ++iRow) PartSolve(iRow, n+1, 3);
+
+
 
     cout << maxTime;
 
@@ -70,9 +72,9 @@ int main() {
 
     cin >> n;
 
-    for(int iRow = 0 ; iRow < n ; ++iRow)
+    for(int iRow = 1 ; iRow <= n ; ++iRow)
     {
-        for(int iCol = 0 ; iCol < n ; ++iCol)
+        for(int iCol = 1 ; iCol <= n ; ++iCol)
         {
             cin >> matrix[iRow][iCol];
         }
