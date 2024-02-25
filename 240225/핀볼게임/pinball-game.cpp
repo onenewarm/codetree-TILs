@@ -4,6 +4,7 @@ using namespace std;
 
 int n;
 int matrix[100][100];
+int d[100][100][4];
 int maxTime = 0;
 
 int dy[4] = {-1, 0, 1, 0};
@@ -13,24 +14,16 @@ void PartSolve(int curY, int curX, int curDir)
 {
     int curTime = 1;
 
-    //int visit[100][100][4] = {};
-    //visit[curY][curX][curDir] = 1;
-
     while(1)
     {
         ++curTime;
         int nextY = curY + dy[curDir];
         int nextX = curX + dx[curDir];
 
-        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1 )
-        {
-            maxTime = max(maxTime, curTime);
-            break;
-        }
-        
-        //if(visit[nextY][nextX][curDir]) break;
+        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1 ) break;
 
-        //visit[nextY][nextX][curDir] = 1;
+        if(d[nextY][nextX][curDir] >= curTime) break;
+        else d[nextY][nextX][curDir] = curTime;
 
         if(matrix[nextY][nextX] != 0)
         {
@@ -50,7 +43,7 @@ void PartSolve(int curY, int curX, int curDir)
         curX = nextX;
     }
 
-    
+    maxTime = max(maxTime, curTime);
 }
 
 void Solve()
