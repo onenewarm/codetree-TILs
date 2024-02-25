@@ -30,7 +30,7 @@ int main() {
     for(int iCnt = 0 ; iCnt < M ; ++iCnt)
     {
         int x,y;
-        cin >> x >> y;
+        cin >> y >> x;
         matrix[y][x] = 2;
     }
 
@@ -78,6 +78,7 @@ int main() {
         
             if(matrix[nextY][nextX] == 1)
             {
+                
                 cout << res;
                 return 0;
             }
