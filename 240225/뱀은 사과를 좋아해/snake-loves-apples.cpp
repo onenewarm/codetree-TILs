@@ -17,31 +17,7 @@ int Move(int iDir, int cnt)
 {
     int timeCnt = 0;
 
-    while(cnt--)
-    {
-        ++timeCnt;
-
-        int y = snake.front().first;
-        int x = snake.front().second;
-
-        int nextY = y + dy[iDir];
-        int nextX = x + dx[iDir];
-
-        if(nextY < 1 || nextX < 1 || nextY > N || nextX > N) return timeCnt;
-
-        if(matrix[nextY][nextX] != 2)
-        {
-            matrix[snake.back().first][snake.back().second] = 0;
-            snake.pop_back();
-        }
-        
-        if(matrix[nextY][nextX] == 1) return timeCnt;
-
-        matrix[nextY][nextX] = 1;
-
-        snake.push_front({nextY,nextX});
-    }
-
+   
     return timeCnt;     
 }
 
@@ -78,8 +54,38 @@ int main() {
         else if(dir == 'L') iDir = 2;
         else iDir = 3;
 
-        res += Move(iDir, cnt);
+        while(cnt--)
+        {
+            ++res;
+
+            int y = snake.front().first;
+            int x = snake.front().second;
+
+            int nextY = y + dy[iDir];
+            int nextX = x + dx[iDir];
+
+            if(nextY < 1 || nextX < 1 || nextY > N || nextX > N)
+            {
+                cout << res ;
+                return 0;
+            }
+
+            if(matrix[nextY][nextX] != 2)
+            {
+                matrix[snake.back().first][snake.back().second] = 0;
+                snake.pop_back();
+            }   
         
+            if(matrix[nextY][nextX] == 1)
+            {
+                cout << res;
+                return 0;
+            }
+
+            matrix[nextY][nextX] = 1;
+
+            snake.push_front({nextY,nextX});
+        }
     }
 
     cout << res;
