@@ -13,13 +13,22 @@ void PartSolve(int curY, int curX, int curDir)
 {
     int curTime = 1;
 
+    int visit[100][100] = {};
+    visit[curY][curX] = 1;
+
     while(1)
     {
         ++curTime;
         int nextY = curY + dy[curDir];
         int nextX = curX + dx[curDir];
 
-        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1) break;
+        if(nextY < 0 || nextX < 0 || nextY > n - 1 || nextX > n - 1 )
+        {
+            maxTime = max(maxTime, curTime);
+            break;
+        }
+        
+        if(visit[nextY][nextX]) break;
 
         if(matrix[nextY][nextX] != 0)
         {
@@ -39,7 +48,7 @@ void PartSolve(int curY, int curX, int curDir)
         curX = nextX;
     }
 
-    maxTime = max(maxTime, curTime);
+    
 }
 
 void Solve()
