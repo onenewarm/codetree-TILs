@@ -51,14 +51,7 @@ void Solve()
         ++curNum;
     }
 
-    for(int iRow = 0 ; iRow < n ; ++iRow)
-    {
-        for(int iCol = 0 ; iCol < n ; ++iCol)
-        {
-            cout << matrix[iRow][iCol] << ' ';        
-        }
-        cout << '\n';
-    }
+
 
 }
 
@@ -74,7 +67,16 @@ int main() {
         }
     }
 
-    Solve();
+    while(m--) Solve();
+
+    for(int iRow = 0 ; iRow < n ; ++iRow)
+    {
+        for(int iCol = 0 ; iCol < n ; ++iCol)
+        {
+            cout << matrix[iRow][iCol] << ' ';        
+        }
+        cout << '\n';
+    }
 
     return 0;
 }
