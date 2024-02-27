@@ -27,11 +27,13 @@ void Solve()
         else if(d == 'D') matrix[r][c] = 2;
         else matrix[r][c] = 3;
     }
-
+ 
+    
     int loopCnt = 0; // 처음 위치로 돌아오기 까지의 시간은 n*2번 걸린다. 이 범위동안 만약에 변화가 없었다면 항상 그상태 일 것이다.
 
     pair<int,int> nextStates[51][51]; //cnt, dir
 
+    
     while(loopCnt <= 2 * (n + 1))
     {
         memset(nextStates, 0, sizeof(pair<int,int>) * 51 * 51);
@@ -50,7 +52,8 @@ void Solve()
                     if(ny < 1 || nx < 1 || ny > n || nx > n)
                     {
                         curDir = (curDir + 2) % 4;
-                        nextStates[ny][nx].second = curDir;
+                        nextStates[iRow][iCol].second = curDir;
+                        nextStates[iRow][iCol].first++;
                     }
                     else
                     {
@@ -60,10 +63,10 @@ void Solve()
                 }
             }
         }
-
+        
         for(int iRow = 1 ; iRow <= n ; ++iRow)
         {
-            for(int iCol = 1; iRow <= n ; ++iCol)
+            for(int iCol = 1; iCol <= n ; ++iCol)
             {
                 if(nextStates[iRow][iCol].first == 1) matrix[iRow][iCol] = nextStates[iRow][iCol].second;
                 else matrix[iRow][iCol] = -1;
@@ -72,7 +75,8 @@ void Solve()
 
         ++loopCnt;
     }
-
+    
+    
     int res = 0;
 
     for(int iRow = 1 ; iRow <= n ; ++iRow)
@@ -84,6 +88,7 @@ void Solve()
     }
 
     cout << res <<'\n';
+    
 }
 
 int main() {
