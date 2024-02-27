@@ -34,8 +34,9 @@ void Solve()
                     maxNum = matrix[ny][nx];
                     nextY = ny;
                     nextX = nx;
-                    ++nextCnt[nextY][nextX];
                 }
+
+                ++nextCnt[nextY][nextX];
             }
         }
     }
@@ -48,6 +49,7 @@ void Solve()
             if(nextCnt[iRow][iCol] > 1) nextCnt[iRow][iCol] = 0;
         }
     }
+
 
 
     memcpy(Cnt, nextCnt, sizeof(int) *  21 * 21);
