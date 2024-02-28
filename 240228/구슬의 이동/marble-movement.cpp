@@ -15,10 +15,10 @@ struct compare
 {
     bool operator()(Marble& a, Marble& b)
     {
-        if(a.speed > b.speed) return true;
+        if(a.speed < b.speed) return true;
         else if(a.speed == b.speed)
         {
-            if(a.num > b.num) return true;
+            if(a.num < b.num) return true;
             else return false;
         }
         else return false;
