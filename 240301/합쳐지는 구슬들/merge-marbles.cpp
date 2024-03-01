@@ -21,6 +21,7 @@ int dx[4] = { 0, 1, 0, -1};
 void Solve()
 {
     memset(nextMatrix, 0, sizeof(Marble) * 51 * 51);
+
     for(int iRow = 1 ; iRow <= n ; ++iRow)
     {
         for(int iCol = 1 ; iCol <= n ; ++iCol)
@@ -44,7 +45,7 @@ void Solve()
                 nextMatrix[ny][nx].dir = matrix[iRow][iCol].dir;
             }
 
-            nextMatrix[ny][nx].num = max(matrix[ny][nx].num, matrix[iRow][iCol].num);
+            nextMatrix[ny][nx].num = max(nextMatrix[ny][nx].num, matrix[iRow][iCol].num);
             nextMatrix[ny][nx].sumWeight += matrix[iRow][iCol].sumWeight;
         }
     }
