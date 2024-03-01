@@ -8,14 +8,13 @@ int cnt = 0;
 
 void DFS(int prefix, int num)
 {
-    if((prefix + num) > n) return;
-    else if((prefix + num) == n)
+    prefix += num;
+    if((prefix) > n) return;
+    else if((prefix) == n)
     {
         ++cnt;
         return;
     }
-
-    prefix += num;
 
     for(int nextNum = 1 ; nextNum <= 9 ; ++nextNum)
     {
