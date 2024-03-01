@@ -5,7 +5,6 @@ using namespace std;
 
 struct Marble
 {
-    int maxWeight;
     int sumWeight;
     int num;
     int dir;
@@ -40,30 +39,13 @@ void Solve()
                 nx = iCol;
             }
 
-            if(nextMatrix[ny][nx].maxWeight < matrix[iRow][iCol].maxWeight)
+            if(nextMatrix[ny][nx].num < matrix[iRow][iCol].num)
             {
-                nextMatrix[ny][nx].maxWeight = matrix[iRow][iCol].maxWeight;
                 nextMatrix[ny][nx].dir = matrix[iRow][iCol].dir;
-            }
-            else if(nextMatrix[ny][nx].maxWeight == matrix[iRow][iCol].maxWeight)
-            {
-                if(nextMatrix[ny][nx].num < matrix[iRow][iCol].num)
-                {
-                    nextMatrix[ny][nx].maxWeight = matrix[iRow][iCol].maxWeight;
-                    nextMatrix[ny][nx].dir = matrix[iRow][iCol].dir;
-                }
             }
 
             nextMatrix[ny][nx].num = max(matrix[ny][nx].num, matrix[iRow][iCol].num);
             nextMatrix[ny][nx].sumWeight += matrix[iRow][iCol].sumWeight;
-        }
-    }
-
-    for(int iRow = 1 ; iRow <= n ; ++iRow)
-    {
-        for(int iCol = 1 ; iCol <= n ; ++iCol)
-        {
-            nextMatrix[iRow][iCol].maxWeight = nextMatrix[iRow][iCol].sumWeight;
         }
     }
 
@@ -96,7 +78,7 @@ int main() {
         else if(d == 'D') dir = 2;
         else dir = 3;
 
-        matrix[r][c] = {w, w, num++, dir};
+        matrix[r][c] = {w, num++, dir};
     }
 
     while(t--)
