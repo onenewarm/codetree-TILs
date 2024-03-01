@@ -16,7 +16,7 @@ void DFS(int prefix, int num)
         return;
     }
 
-    for(int nextNum = 1 ; nextNum <= 9 ; ++nextNum)
+    for(int nextNum = 1 ; nextNum <= 4 ; ++nextNum)
     {
         DFS(prefix, nextNum);
     }
@@ -24,7 +24,7 @@ void DFS(int prefix, int num)
 
 void Solve()
 {
-    for(int Num = 1 ; Num <= 9 ; ++Num)
+    for(int Num = 1 ; Num <= 4 ; ++Num)
     {
         DFS(0, Num);
     }
