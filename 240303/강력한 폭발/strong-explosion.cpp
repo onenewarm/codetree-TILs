@@ -59,7 +59,7 @@ void DFS(int iBombs, int BombNum, int curRes)
             int ny = rY + dy[iCnt][jCnt];
             int nx = rX + dx[iCnt][jCnt];
 
-            if(ny < 0 || nx < 0 || ny > n-1 || nx > n-1 || matrix[ny][nx] == 1) continue;
+            if(ny < 0 || nx < 0 || ny > n-1 || nx > n-1 ) continue;
         
             visit[ny][nx] = 0;
         }
@@ -71,6 +71,21 @@ void Solve()
     for(int iCnt = 1 ; iCnt < 4 ; ++iCnt)
     {
         DFS(0, iCnt, 0);
+
+        int rY = bombs[0].first;
+        int rX = bombs[0].second;
+
+        visit[rY][rX] = 0;
+        for(int jCnt = 0 ; jCnt < 4 ; ++jCnt)
+        {
+            int ny = rY + dy[iCnt][jCnt];
+            int nx = rX + dx[iCnt][jCnt];
+
+            if(ny < 0 || nx < 0 || ny > n-1 || nx > n-1 || matrix[ny][nx] == 1) continue;
+        
+            visit[ny][nx] = 0;
+        }
+
     }
 
     cout << res;
