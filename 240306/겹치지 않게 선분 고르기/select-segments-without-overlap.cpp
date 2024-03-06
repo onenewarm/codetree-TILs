@@ -17,11 +17,13 @@ bool CheckVisit(int x1, int x2)
     return true;
 }
 
-void DFS(int iLines, int curRes)
+bool DFS(int iLines, int curRes)
 {
     int x1,x2;
     x1 = lines[iLines].first;
     x2 = lines[iLines].second;
+
+    bool addFlag = false;
 
     if(CheckVisit(x1,x2))
     {
@@ -30,21 +32,29 @@ void DFS(int iLines, int curRes)
             visit[dx] = 1;
         }
         ++curRes;
+        addFlag = true;
     }
 
     if(iLines == n - 1) res = max(res, curRes);
 
     for(int iNextLines = iLines + 1 ; iNextLines < n ; ++iNextLines)
     {
-        DFS(iNextLines, curRes);
-        int nextX1 = lines[iNextLines].first;
-        int nextX2 = lines[iNextLines].second;
+        bool releaseFlag = DFS(iNextLines, curRes);
 
-        for(int dx = nextX1 ; dx <= nextX2 ; ++dx)
+        if(releaseFlag)
         {
-            visit[dx] = 0;
+            int nextX1 = lines[iNextLines].first;
+            int nextX2 = lines[iNextLines].second;
+            
+            for(int dx = nextX1 ; dx <= nextX2 ; ++dx)
+            {
+                visit[dx] = 0;
+            }
         }
+        
     }
+
+    return addFlag;
 }
 
 void Solve()
