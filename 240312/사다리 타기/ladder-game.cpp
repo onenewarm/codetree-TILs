@@ -22,12 +22,12 @@ bool Possible()
         num1[iX] = num2[iX] = iX;
     }
 
-    for(int iCnt = 0 ; iCnt < lines.size() ; ++iCnt)
+    for(int iCnt = 0 ; iCnt < (int)lines.size() ; ++iCnt)
     {
         swap(num1[iCnt], num1[lines[iCnt].second]);
     }
 
-    for(int iCnt = 0 ; iCnt < selectedLines.size() ; ++iCnt)
+    for(int iCnt = 0 ; iCnt < (int)selectedLines.size() ; ++iCnt)
     {
         swap(num2[iCnt], num2[selectedLines[iCnt].second]);
     }
