@@ -24,12 +24,14 @@ bool Possible()
 
     for(int iCnt = 0 ; iCnt < (int)lines.size() ; ++iCnt)
     {
-        swap(num1[iCnt], num1[lines[iCnt].second]);
+        int idx = lines[iCnt].second;
+        swap(num1[idx], num1[idx + 1]);
     }
 
     for(int iCnt = 0 ; iCnt < (int)selectedLines.size() ; ++iCnt)
     {
-        swap(num2[iCnt], num2[selectedLines[iCnt].second]);
+        int idx = selectedLines[iCnt].second;
+        swap(num2[idx], num2[idx + 1]);
     }
 
     for(int iCnt = 0 ; iCnt < n ; ++iCnt)
@@ -63,7 +65,7 @@ int main() {
     // 여기에 코드를 작성해주세요.
     cin >> n >> m;
 
-    for(int iCnt = 0 ; iCnt < n ; ++iCnt)
+    for(int iCnt = 0 ; iCnt < m ; ++iCnt)
     {
         int a,b;
         cin >> a >> b;
