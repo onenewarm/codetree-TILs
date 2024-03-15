@@ -30,8 +30,6 @@ void Move(int moveCnt)
 
     for(int iCnt = 1 ; iCnt <= k ; ++iCnt)
     {
-        if(moveCnt != n - 1 && curPos[iCnt] == m) continue;
-
         int prevPos = curPos[iCnt];
         curPos[iCnt] += turns[moveCnt];
         if(curPos[iCnt] > m) curPos[iCnt] = m;
