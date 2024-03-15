@@ -25,7 +25,7 @@ void Choose(int curCnt)
 
     for(int addNum = 1 ; addNum <= K ; ++addNum)
     {
-        if(curCnt >= 2 && nums[curCnt - 1] == addNum && nums[curCnt] == addNum) continue;
+        if(curCnt >= 2 && nums[curCnt - 2] == addNum && nums[curCnt - 1] == addNum) continue;
         nums.push_back(addNum);
         Choose(curCnt + 1);
         nums.pop_back();
