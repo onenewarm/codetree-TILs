@@ -56,27 +56,23 @@ void ChooseNum(int chooseCnt)
 {
     if(exitFlag) return;
 
-    if(chooseCnt > 1 && Possible(chooseCnt))
+    if(chooseCnt == n)
     {
-        if(chooseCnt == n)
+        for(int iCnt = 0 ; iCnt < curNums.size() ; ++iCnt)
         {
-            for(int iCnt = 0 ; iCnt < curNums.size() ; ++iCnt)
-            {
-                cout << curNums[iCnt];
-            }
-            exitFlag = true;
-            return;
+            cout << curNums[iCnt];
         }
+        exitFlag = true;
+        return;
     }
-    else if(chooseCnt > 1) return;
+
 
     for(int Num = 4 ; Num <= 6 ; ++Num)
     {
         curNums.push_back(Num);
-        ChooseNum(chooseCnt + 1);
+        if(curNums.size() < 2 || Possible(chooseCnt + 1)) ChooseNum(chooseCnt + 1);
         curNums.pop_back();
     }
-
 }
 
 int main() {
