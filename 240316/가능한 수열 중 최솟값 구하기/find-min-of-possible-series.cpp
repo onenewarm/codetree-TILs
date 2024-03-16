@@ -11,7 +11,6 @@ bool exitFlag = false;
 
 bool PartPossible(int slideSize)
 {
-    
     int s = 0;
     int e = s + (slideSize - 1);
     while(e < n)
@@ -21,15 +20,23 @@ bool PartPossible(int slideSize)
 
         int range = slideSize / 2;
 
+        int chkFlag = true;
+
         for(int chkCnt = 0 ; chkCnt < range ; ++chkCnt)
         {
-            if(curNums[left++] != curNums[right++]) return true;
+            if(curNums[left++] != curNums[right++])
+            {
+                chkFlag = false;
+                break;
+            }
         }
+
+        if(chkFlag == true) return false;
 
         ++s;
         ++e;
     }
-    return false;
+    return true;
 }
 
 bool Possible()
