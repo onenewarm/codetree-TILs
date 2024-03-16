@@ -37,11 +37,11 @@ bool PartPossible(int slideSize)
     return true;
 }
 
-bool Possible()
+bool Possible(int size)
 {
     int slideSize = 2;
 
-    while(slideSize <= n)
+    while(slideSize <= size)
     {
         if(!PartPossible(slideSize)) return false;
         slideSize += 2;
@@ -56,7 +56,7 @@ void ChooseNum(int chooseCnt)
 {
     if(exitFlag) return;
 
-    if(chooseCnt > 1 && Possible())
+    if(chooseCnt > 1 && Possible(chooseCnt))
     {
         if(chooseCnt == n)
         {
