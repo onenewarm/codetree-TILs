@@ -7,8 +7,6 @@ int n;
 
 vector<int> curNums;
 
-bool exitFlag = false;
-
 bool PartPossible(int slideSize)
 {
     int s = 0;
@@ -52,22 +50,25 @@ bool Possible()
     return true;
 }
 
+bool exitFlag = false;
+
 void ChooseNum(int chooseCnt)
 {
     if(exitFlag) return;
 
-    if(chooseCnt == n)
+    if(chooseCnt > 1 && Possible())
     {
-        if(Possible())
+        if(chooseCnt == n)
         {
             for(int iCnt = 0 ; iCnt < curNums.size() ; ++iCnt)
             {
                 cout << curNums[iCnt];
             }
             exitFlag = true;
+            return;
         }
-        return;
     }
+    else if(chooseCnt > 1) return;
 
     for(int Num = 4 ; Num <= 6 ; ++Num)
     {
