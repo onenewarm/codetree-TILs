@@ -7,11 +7,11 @@ int n;
 
 vector<int> curNums;
 
-bool PartPossible(int slideSize)
+bool PartPossible(int slideSize, int size)
 {
     int s = 0;
     int e = s + (slideSize - 1);
-    while(e < n)
+    while(e < size)
     {
         int left = s;
         int right = (s + e) / 2 + 1;
@@ -43,7 +43,7 @@ bool Possible(int size)
 
     while(slideSize <= size)
     {
-        if(!PartPossible(slideSize)) return false;
+        if(!PartPossible(slideSize, size)) return false;
         slideSize += 2;
     }
 
