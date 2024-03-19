@@ -39,7 +39,8 @@ int main() {
 
     Jump(0, 0);
 
-    cout << res;
+    if(res == INVALID_VALUE) cout << -1;
+    else cout << res;
 
     return 0;
 }
