@@ -25,7 +25,9 @@ void MinPath(int coinCount, int curPos, int curMoveCnt)
 
     for(int nextPos = curPos + 1 ; nextPos <= totalCoin ; ++nextPos)
     {
-        if(coinCount + 1 + (totalCoin - nextPos) < 3) return; 
+        if(coinCount + 1 + (totalCoin - nextPos) < 3) return;
+
+        if(positions[nextPos].first == -1) continue;
 
         int moveCnt = abs(positions[curPos].first - positions[nextPos].first) + 
                         abs(positions[curPos].second - positions[nextPos].second);
@@ -42,6 +44,8 @@ int main() {
     {
         cin >> matrix[iRow];
     }
+
+    for(int iCnt = 0 ; iCnt < 10 ; ++iCnt) positions[iCnt] = { -1, -1 };
 
     for(int iRow = 0 ; iRow < N ; ++iRow)
     {
@@ -60,9 +64,11 @@ int main() {
         }
     }
 
+
     MinPath(0, 0, 0);
 
-    cout << res;
+    if(res == 2147483647) cout << -1;
+    else cout << res;
 
     return 0;
 }
