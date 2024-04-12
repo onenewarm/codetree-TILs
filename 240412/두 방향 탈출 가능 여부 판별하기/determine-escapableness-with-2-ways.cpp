@@ -13,7 +13,7 @@ bool possibleFlag = false;
 
 void DFS(int curRow, int curCol)
 {
-    if(curRow == n -1 && curCol == m - 1)
+    if(curRow == n - 1 && curCol == m - 1)
     {
         possibleFlag = true;
         cout << 1;
@@ -25,10 +25,11 @@ void DFS(int curRow, int curCol)
         int nextY = curRow + dy[DCnt];
         int nextX = curCol + dx[DCnt];
 
-        if(nextY < 0 || nextX < 0 || nextY > n -1 
+        if(nextY < 0 || nextX < 0 || nextY > n - 1 
         || nextX > m - 1 || matrix[nextY][nextX] == 0) continue;
 
         DFS(nextY, nextX);
+        if(possibleFlag == true) return;
     }
 }
 
