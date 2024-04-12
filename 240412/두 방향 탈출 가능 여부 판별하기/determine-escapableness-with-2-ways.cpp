@@ -46,6 +46,8 @@ int main() {
         }
     }
 
+    DFS(0,0);
+
     if(possibleFlag == false) cout << 0;
 
     return 0;
