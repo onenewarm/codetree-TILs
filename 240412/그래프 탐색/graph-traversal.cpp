@@ -13,20 +13,15 @@ vector<int> visit;
 
 void DFS(int curVertex)
 {
-    bool endFlag = true;
-
     for(int iEdge = 0 ; iEdge < adj[curVertex].size() ; ++iEdge)
     {
         int adjNodeNum = adj[curVertex][iEdge];
         if(visit[adjNodeNum]) continue;
 
-        endFlag = false;
+        ++res;
         visit[adjNodeNum] = 1;
         DFS(adjNodeNum);
-        visit[adjNodeNum] = 0;
     }
-
-    if(endFlag == true) ++res;
 }
 
 int main() {
