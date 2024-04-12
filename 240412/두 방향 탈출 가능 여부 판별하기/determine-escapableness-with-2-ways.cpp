@@ -7,7 +7,7 @@ int n,m;
 vector<vector<int>> matrix;
 
 int dy[2] = {0, 1};
-int dx[2] = {-1, 0};
+int dx[2] = {1, 0};
 
 bool possibleFlag = false;
 
