@@ -26,7 +26,7 @@ void DFS(int curRow, int curCol)
         int nextX = curCol + dx[DCnt];
 
         if(nextY < 0 || nextX < 0 || nextY > n -1 
-        || nextX > n - 1 || matrix[nextY][nextX] == 0) continue;
+        || nextX > m - 1 || matrix[nextY][nextX] == 0) continue;
 
         DFS(nextY, nextX);
     }
