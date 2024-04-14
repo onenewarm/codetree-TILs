@@ -12,7 +12,7 @@ vector<vector<int>> floodedMatrix;
 
 list<pair<int,int>> notFloodedHouse;
 
-int maxSafeBoundary = 0;
+int maxSafeBoundary = 1;
 int safeBoundaryMinK;
 
 int dx[4] = {0,0,-1,1};
