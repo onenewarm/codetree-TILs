@@ -51,9 +51,10 @@ int main() {
             int curBlockCnt = 1;
             DFS(board[iRow][iCol] ,iRow, iCol, &curBlockCnt);
 
+            ansMAXPang = max(ansMAXPang, curBlockCnt);
+
             if(curBlockCnt >= 4)
             {
-                ansMAXPang = max(ansMAXPang, curBlockCnt);
                 ansPangCnt++;
             }
         }
