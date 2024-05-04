@@ -18,9 +18,7 @@ int DFS(int cur)
     else if(cur == n) return memo[cur] = 1;
     else if(cur == n - 1) return memo[cur] = 0;
 
-    memo[cur] = 0;
-
-    return memo[cur] += ((DFS(cur + 2) + DFS(cur + 3))) % 10,007;
+    return memo[cur] = (DFS(cur + 2) + DFS(cur + 3)) % 10,007;
 }
 
 int main() {
