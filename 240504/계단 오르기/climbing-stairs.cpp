@@ -20,7 +20,7 @@ int DFS(int cur)
 
     memo[cur] = 0;
 
-    return memo[cur] += (DFS(cur + 2) + DFS(cur + 3));
+    return memo[cur] += ((DFS(cur + 2) + DFS(cur + 3))) % 10,007;
 }
 
 int main() {
