@@ -25,7 +25,7 @@ int main() {
     // 여기에 코드를 작성해주세요.
     cin >> n;
 
-    ::memset(memo, -1, 1001);
+    ::memset(memo, -1, sizeof(int) * 1001);
     
     DFS(0);
 
