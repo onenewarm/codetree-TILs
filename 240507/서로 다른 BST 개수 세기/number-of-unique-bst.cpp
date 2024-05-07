@@ -3,39 +3,25 @@
 using namespace std;
 
 int n;
-int memo[20];
-
-
-int DFS(int nodeCnt)
-{
-    if(memo[nodeCnt] != -1) return memo[nodeCnt];
-
-    if(nodeCnt == 0) return memo[0] = 1;
-    else if(nodeCnt == 1) return memo[1] = 1;
-    else
-    {
-        int ret = 0;
-        for(int LeftCnt = 0 ; LeftCnt < nodeCnt ; ++LeftCnt)
-        {
-            ret += DFS(LeftCnt) * DFS((nodeCnt - 1) - LeftCnt);
-        }
-        return memo[nodeCnt] = ret;
-    } 
-}
+int table[20];
 
 
 int main() {
     // 여기에 코드를 작성해주세요.
     cin >> n;
 
-    for(int iCnt = 0 ; iCnt < 20 ; ++iCnt)
+    table[0] = 1;
+    table[1] = 1;
+
+    for(int tableIdx = 2 ; tableIdx <= n ; ++tableIdx)
     {
-        memo[iCnt] = -1;
+        for(int LeftCnt = 0 ; LeftCnt < tableIdx ; ++LeftCnt)
+        {
+            table[tableIdx] += table[LeftCnt] * table[(tableIdx - 1) - LeftCnt];
+        }
     }
 
-    DFS(n);
-
-    cout << memo[n];
+    cout << table[n];
 
     return 0;
 }
