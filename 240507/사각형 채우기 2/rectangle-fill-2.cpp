@@ -15,7 +15,7 @@ int main() {
 
     for(int rectWidth = 2 ; rectWidth <= n ; ++rectWidth)
     {
-        table[rectWidth] = table[rectWidth - 1] + 2*table[rectWidth - 2]; 
+        table[rectWidth] = (table[rectWidth - 1] + 2*table[rectWidth - 2]) % 10007; 
     }
 
     cout << table[n];
