@@ -4,6 +4,7 @@
 using namespace std;
 
 string A,B;
+int d[1001][1001];
 
 int DFS(int i, int j)
 {
@@ -12,24 +13,30 @@ int DFS(int i, int j)
         return 0;
     }
 
+    if(d[i][j] != -1) return d[i][j];
+
     if(A[i] == B[j])
     {
         
-        int res = DFS(i-1, j-1) + 1;
-        
-        return res;
+        return d[i][j] = DFS(i-1, j-1) + 1;
     }
     else
     {
-        int res = max(DFS(i-1, j), DFS(i,j-1));
-        
-        return res;
+        return d[i][j] = max(DFS(i-1, j), DFS(i,j-1));
     }
 }
 
 int main() {
     // 여기에 코드를 작성해주세요.
     cin >> A >> B;
+
+    for(int ASize = 0 ; ASize < A.size() ; ++ASize)
+    {
+        for(int BSize = 0 ; BSize < B.size() ; ++BSize)
+        {
+            d[ASize][BSize] = -1;    
+        }
+    }
     
     cout << DFS(A.size() -1 , B.size() - 1);
 
