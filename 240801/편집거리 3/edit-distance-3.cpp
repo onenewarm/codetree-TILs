@@ -12,6 +12,8 @@ int DFS(int i, int j)
 {
     if(i < 0 || j < 0) return abs(i - j);
 
+    if(dp[i][j] != -1) return dp[i][j];
+
     if(A[i] == B[j]) return dp[i][j] = DFS(i-1, j-1);
     else return dp[i][j] = min(DFS(i-1,j), DFS(i, j-1)) + 1;
 }
