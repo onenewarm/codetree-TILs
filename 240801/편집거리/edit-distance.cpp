@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <cmath>
 
 using namespace std;
 
@@ -11,7 +11,10 @@ int dp[1001][1001];
 int DFS(int i, int j)
 {
     if(i < 0 && j < 0) return 0;
-    else if(i < 0 || j < 0) return 1;
+    else if(i < 0 || j < 0)
+    {
+        return abs(i-j);
+    }
 
     if(dp[i][j] != -1) return dp[i][j];
     
