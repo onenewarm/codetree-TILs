@@ -8,7 +8,8 @@ string A,B;
 
 int DFS(int i, int j)
 {
-    if(i < 0 || j < 0)  return 1;
+    if(i < 0 && j < 0) return 0;
+    else if(i < 0 || j < 0) return 1;
     
     if(A[i] == B[j])
     {
