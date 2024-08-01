@@ -26,7 +26,17 @@ bool DFS(int i, int j, bool starFlag)
     }
     else
     {
-        if(p[j] == '.') return DFS(i-1, j-1, false);
+        if(p[j] == '.')
+        {
+            if(starFlag == true)
+            {
+                bool ret = DFS(i-1, j-1, false);
+                if(ret == false) ret = DFS(i-1, j, true);
+                return ret;
+            }
+
+            return DFS(i-1, j-1, false);
+        }
         
         if(p[j] == '*') return DFS(i, j-1, true);
 
