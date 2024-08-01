@@ -10,10 +10,10 @@ int dp[1001][1001];
 
 int DFS(int i, int j)
 {
-    if(dp[i][j] != -1) return dp[i][j];
-
     if(i < 0 && j < 0) return 0;
     else if(i < 0 || j < 0) return 1;
+
+    if(dp[i][j] != -1) return dp[i][j];
     
     if(A[i] == B[j])
     {
