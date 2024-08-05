@@ -49,6 +49,8 @@ int main() {
 
     while(1)
     {
+        if(dp[i][j] == 0) break;
+
         if(i < 1 || j < 1)
         {
             //cout << "!";
