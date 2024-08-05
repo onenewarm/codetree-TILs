@@ -12,7 +12,7 @@ int DFS(int i, int j)
 {
     if(i < 1 || j < 1) return 0;
     
-    if(dp[i][j] != 0) return dp[i][j];
+    if(dp[i][j] != -1) return dp[i][j];
 
     if(A[i-1] == B[j-1])
     {
@@ -27,6 +27,14 @@ int DFS(int i, int j)
 int main() {
     
     cin >> A >> B;
+
+    for(int Row = 0 ; Row < 1001 ; ++Row)
+    {
+        for(int Col = 0 ; Col < 1001 ; ++Col)
+        {
+            dp[Row][Col] = -1;
+        }
+    }
 
     DFS(A.size(), B.size());
 
