@@ -66,7 +66,7 @@ int main() {
                         //cout << "%";
                         prevDP = dp[i+1][curj];
                         //printf("Add : %d, %d, %c\n", i, curj, B[curj-1]);
-                        res = B[curj-1] + res;
+                        res += B[curj-1];
                     }
                 }
             }
@@ -78,7 +78,7 @@ int main() {
                     {
                         prevDP = dp[curi][j+1];
                         //printf("Add : %d, %d, %c\n", curi, j, A[curi-1]);
-                        res = A[curi-1] + res;
+                        res += A[curi-1];
                     } 
                 }
             }
@@ -90,12 +90,12 @@ int main() {
             if(dp[i-1][j] == prevDP - 1)
             {
                 //printf("Add : %d, %d, %c\n", i, j, B[j-1]);
-                res = B[j-1] + res;
+                res += B[j-1];
             }
             else
             {
                 //printf("Add : %d, %d, %c\n", i, j, A[i-1]);
-                res = A[i-1] + res;
+                res += A[i-1];
             }
             prevDP = dp[i][j];
             //cout <<"***"<< i << j << prevDP;
@@ -104,6 +104,9 @@ int main() {
         j--;
     }
 
-    cout << res;
+    for(int Cnt = res.size() - 1 ; Cnt >= 0 ; --Cnt)
+    {
+        printf("%c", res[Cnt]);
+    }
     return 0;
 }
