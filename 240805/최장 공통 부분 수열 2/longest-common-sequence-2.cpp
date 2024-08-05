@@ -43,9 +43,9 @@ int main() {
     int prevDP = dp[i][j];
 
 /*
-    for(int Row = 1 ; Row <= A.size() ; ++Row)
+    for(int Row = 0 ; Row <= A.size() ; ++Row)
     {
-        for(int Col = 1 ; Col <= B.size() ; ++Col)
+        for(int Col = 0 ; Col <= B.size() ; ++Col)
         {
             cout << dp[Row][Col] << ' ';
         }
@@ -55,8 +55,7 @@ int main() {
 
     while(1)
     {
-        if(i == 0 && j == 0) break;
-        else if(dp[i][j] == prevDP - 1)
+        if(dp[i][j] == prevDP - 1)
         {
             if(dp[i][j+1] == prevDP)
             {
@@ -70,6 +69,8 @@ int main() {
             }
             prevDP = dp[i][j];
             //cout <<"***"<< i << j << prevDP;
+
+            if(i == 0 && j == 0) break;
         }
         
         if(i != 0) i--;
