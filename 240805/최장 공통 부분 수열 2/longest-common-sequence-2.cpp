@@ -42,8 +42,6 @@ int main() {
     int j = B.size();
     int prevDP = dp[i][j];
 
-    if(A[i-1] == B[j-1]) res = A[i-1];
-
 /*
     for(int Row = 1 ; Row <= A.size() ; ++Row)
     {
@@ -57,8 +55,6 @@ int main() {
 
     while(1)
     {
-        if(dp[i][j] == 0) break;
-
         if(i < 1 || j < 1)
         {
             //cout << "!";
@@ -95,15 +91,15 @@ int main() {
         }
         else if(dp[i][j] == prevDP - 1)
         {
-            if(dp[i-1][j] == prevDP - 1)
+            if(dp[i][j+1] == prevDP)
             {
-                //printf("Add : %d, %d, %c\n", i, j, B[j-1]);
-                res += B[j-1];
+                //printf("Add : %d, %d, %c\n", i, j, B[j]);
+                res += B[j];
             }
             else
             {
-                //printf("Add : %d, %d, %c\n", i, j, A[i-1]);
-                res += A[i-1];
+                //printf("Add : %d, %d, %c\n", i, j, A[i]);
+                res += A[i];
             }
             prevDP = dp[i][j];
             //cout <<"***"<< i << j << prevDP;
