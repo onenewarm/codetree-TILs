@@ -10,7 +10,7 @@ string A, B, res;
 
 int DFS(int i, int j)
 {
-    if(dp[i][j] != -1) return dp[i][j];
+    if(dp[i][j] != -2) return dp[i][j];
 
     if(i < 1 || j < 1) return dp[i][j] = 0;
 
@@ -32,7 +32,7 @@ int main() {
     {
         for(int Col = 0 ; Col < 1001 ; ++Col)
         {
-            dp[Row][Col] = -1;
+            dp[Row][Col] = -2;
         }
     }
 
@@ -43,6 +43,7 @@ int main() {
     int prevDP = dp[i][j];
 
 /*
+
     for(int Row = 0 ; Row <= A.size() ; ++Row)
     {
         for(int Col = 0 ; Col <= B.size() ; ++Col)
@@ -51,10 +52,20 @@ int main() {
         }
         cout << endl;
     }
+    
     */
 
     while(1)
     {
+        if(prevDP == 0) break;
+
+        if(i == 0 && j == 0 && prevDP == 1)
+        {
+            if(A.size() > B.size()) res += A[0];
+            else res += B[0];
+            break;
+        }
+
         if(dp[i][j] == prevDP - 1)
         {
             if(dp[i][j+1] == prevDP)
@@ -69,8 +80,6 @@ int main() {
             }
             prevDP = dp[i][j];
             //cout <<"***"<< i << j << prevDP;
-
-            if(i == 0 && j == 0) break;
         }
         
         if(i != 0) i--;
