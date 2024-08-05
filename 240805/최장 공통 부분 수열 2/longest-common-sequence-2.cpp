@@ -10,9 +10,9 @@ string A, B, res;
 
 int DFS(int i, int j)
 {
-    if(i < 1 || j < 1) return 0;
-    
     if(dp[i][j] != -1) return dp[i][j];
+
+    if(i < 1 || j < 1) return dp[i][j] = 0;
 
     if(A[i-1] == B[j-1])
     {
@@ -55,40 +55,7 @@ int main() {
 
     while(1)
     {
-        if(i < 1 || j < 1)
-        {
-            //cout << "!";
-            if(i < 1)
-            {
-                //cout << "@";
-                for(int curj = j ; curj > 0 ; --curj)
-                {
-                    //cout << "#";
-                    //cout << prevDP;
-                    if(dp[i+1][curj] == prevDP - 1)
-                    {
-                        //cout << "%";
-                        prevDP = dp[i+1][curj];
-                        //printf("Add : %d, %d, %c\n", i, curj, B[curj-1]);
-                        res += B[curj-1];
-                    }
-                }
-            }
-            else
-            {
-                for(int curi = i ; curi > 0 ; --curi)
-                {
-                   if(dp[curi][j+1] == prevDP - 1)
-                    {
-                        prevDP = dp[curi][j+1];
-                        //printf("Add : %d, %d, %c\n", curi, j, A[curi-1]);
-                        res += A[curi-1];
-                    } 
-                }
-            }
-
-            break;
-        }
+        if(i == 0 && j == 0) break;
         else if(dp[i][j] == prevDP - 1)
         {
             if(dp[i][j+1] == prevDP)
@@ -104,8 +71,9 @@ int main() {
             prevDP = dp[i][j];
             //cout <<"***"<< i << j << prevDP;
         }
-        i--;
-        j--;
+        
+        if(i != 0) i--;
+        if(j != 0) j--;
     }
 
     for(int Cnt = res.size() - 1 ; Cnt >= 0 ; --Cnt)
