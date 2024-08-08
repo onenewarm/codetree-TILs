@@ -83,8 +83,8 @@ int main() {
             //cout <<"***"<< i << j << prevDP;
         }
 
-        if (i != 0) i--;
-        if (j != 0) j--;
+        if (i != 1) i--;
+        if (j != 1) j--;
     }
 
 
