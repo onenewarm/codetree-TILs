@@ -69,20 +69,21 @@ int main() {
 
         if (DFS(i,j) == prevDP - 1)
         {
-            if(DFS(i+1, j+1) == prevDP)
-            {
-                res += A[i];
-            }
-            else if (DFS(i, j+1) == prevDP)
+            if (DFS(i, j+1) == prevDP)
             {
                 //printf("Add : %d, %d, %c\n", i, j, B[j]);
                 res += B[j];
             }
-            else
+            else if(DFS(i+1, j) == prevDP)
             {
                 //printf("Add : %d, %d, %c\n", i, j, A[i]);
                 res += A[i];
             }
+            else
+            {
+                res += A[i];
+            }
+
             prevDP--;
             //cout <<"***"<< i << j << prevDP;
         }
