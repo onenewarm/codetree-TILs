@@ -60,7 +60,7 @@ int main() {
 
         if (prevDP == 0) break;
 
-        if (i == 1 && j == 1 && prevDP == 1)
+        if (i == 0 && j == 0 && prevDP == 1)
         {
             if (A.size() > B.size()) res += A[0];
             else res += B[0];
@@ -69,7 +69,11 @@ int main() {
 
         if (DFS(i,j) == prevDP - 1)
         {
-            if (DFS(i, j+1) == prevDP)
+            if(DFS(i+1, j+1) == prevDP)
+            {
+                res += A[i];
+            }
+            else if (DFS(i, j+1) == prevDP)
             {
                 //printf("Add : %d, %d, %c\n", i, j, B[j]);
                 res += B[j];
@@ -83,8 +87,8 @@ int main() {
             //cout <<"***"<< i << j << prevDP;
         }
 
-        if (i != 1) i--;
-        if (j != 1) j--;
+        if (i != 0) i--;
+        if (j != 0) j--;
     }
 
 
