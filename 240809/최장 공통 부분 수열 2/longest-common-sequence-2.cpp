@@ -44,20 +44,7 @@ int DFS(int i, int j)
         }
         return dp[i][j];
     }
-    else
-    {
-        int aCommonLen = DFS(i, j-1);
-        int bCommonLen = DFS(i-1, j);
-
-        if(A > B)
-        {
-            return dp[i][j] = aCommonLen;
-        }
-        else
-        {
-            return dp[i][j] = bCommonLen;
-        }
-    }
+    else return dp[i][j] = max(DFS(i, j-1) , DFS(i-1,j));
 }
 
 int main() {
