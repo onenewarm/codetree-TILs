@@ -26,6 +26,7 @@ Log logs[65536];
 
 */
 
+int visit[1001];
 
 int DFS(int i, int j)
 {
@@ -35,8 +36,13 @@ int DFS(int i, int j)
 
     if (A[i - 1] == B[j - 1])
     {
-        res.push_back(A[i-1]);
-        return dp[i][j] = DFS(i - 1, j - 1) + 1;
+        dp[i][j] = DFS(i - 1, j - 1) + 1;
+        if(visit[dp[i][j]] == 0)
+        {
+            res.push_back(A[i-1]);
+            visit[dp[i][j]] = 1;
+        }
+        return dp[i][j];
     }
     else
     {
@@ -137,9 +143,6 @@ int main() {
     */
 
 
-    for (int Cnt = res.size() - 1; Cnt >= 0; --Cnt)
-    {
-        printf("%c", res[Cnt]);
-    }
+    cout << res;
     return 0;
 }
