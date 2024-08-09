@@ -45,12 +45,10 @@ int DFS(int i, int j)
 
         if(A > B)
         {
-            if(aCommonLen != 0) res.push_back(A[i-1]);
             return dp[i][j] = aCommonLen;
         }
         else
         {
-            if(bCommonLen != 0) res.push_back(B[j-1]);
             return dp[i][j] = bCommonLen;
         }
     }
